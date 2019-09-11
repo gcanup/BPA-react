@@ -1,12 +1,14 @@
-import React from 'react'
-import './App.scss'
+import React, { Component } from 'react'
+import NavHeader from './NavHeader'
 
-function App() {
-  return (
-    <div className='app'>
-      <h1>Hello world</h1>
-    </div>
-  )
+class App extends Component {
+  render() {
+    return (
+      <>
+        <NavHeader />
+      </>
+    )
+  }
 }
 
 export default App
