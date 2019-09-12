@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import { Jumbotron } from 'reactstrap'
 
-export default class NavHeader extends Component {
+class Checkout extends Component {
   render() {
     return (
       <>
         <Jumbotron>
-          Navigation Page
+          Checkout Page
         </Jumbotron>
       </>
     )
   }
 }
+export default Checkout

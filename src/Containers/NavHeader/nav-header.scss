@@ -1,0 +1,26 @@
+.navbar {
+  background: #383d41;
+
+  .logo {
+    width: 70px;
+  }
+
+  .nav-item {
+    a {
+      margin: 0 10px;
+      padding: 5px 10px;
+      color: #f8f9fa;
+
+      &:hover {
+        text-decoration: none;
+        color: #383d41;
+        background: #f8f9fa;
+      }
+    }
+
+    .active {
+      color: #383d41;
+      background: #f8f9fa;
+    }
+  }
+}
