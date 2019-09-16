@@ -6,7 +6,7 @@ import './build-controls.scss'
 const buildControls = [
   { id: 1, name: 'Mathematics', label: 'math', value: 0 },
   { id: 2, name: 'Programming', label: 'programming', value: 0 },
-  { id: 3, name: 'Computer Science', label: 'computer', value: 0 },
+  { id: 3, name: 'Technology', label: 'technology', value: 0 },
   { id: 4, name: 'Biology', label: 'biology', value: 0 }
 ]
 

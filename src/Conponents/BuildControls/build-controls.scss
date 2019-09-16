@@ -1,13 +1,5 @@
 .buildControls {
   background: #383d4038;
-  width: 80%;
   margin: auto;
   padding: 3rem;
-}
-
-@media only screen and (max-width: 600px) {
-  .buildControls {
-    width: 100%;
-    padding: 20px 10px;
-  }
 }

@@ -8,7 +8,7 @@ class LandingPage extends Component {
     cart: {
       math: 0,
       programming: 0,
-      computer: 0,
+      technology: 0,
       biology: 0 }, // coming from db
     totalCount: 0,
     imgLibrary: []
@@ -16,23 +16,23 @@ class LandingPage extends Component {
 
   addBookHandler = (bookType) => {
     const { totalCount, cart, imgLibrary } = this.state
-    const newBookCount = cart[bookType] + 1
     const updatedCart = { ...cart }
-    updatedCart[bookType] = newBookCount
+    updatedCart[bookType] = cart[bookType] + 1
     totalCount < 5 &&
       this.setState({
         totalCount: totalCount + 1,
-        cart: updatedCart,  //solve this in single line as image state
+        cart: updatedCart,  //solve this in single line as image state, and change commit messages
         alert: false,
         imgLibrary: [...imgLibrary, bookType]
       })
   }
 
   removeBookHandler = (bookType) => {
-    const { totalCount, cart } = this.state
+    const { totalCount, cart, imgLibrary } = this.state
     const newBookCount = cart[bookType] - 1
     const updatedCart = { ...cart }
     updatedCart[bookType] = newBookCount
+    imgLibrary.splice(imgLibrary.findIndex(name => name === bookType), 1)
     totalCount > 0 &&
       this.setState({
         totalCount: totalCount - 1,
@@ -41,9 +41,8 @@ class LandingPage extends Component {
   }
 
   render() {
-    console.log(this.state.imgLibrary)
     return (
-      <div className='mt-5 mx-auto'>
+      <div className='mt-5 mx-auto landing-page'>
         <Cart {...this.state} />
         <BuildControls
           addBook={this.addBookHandler}

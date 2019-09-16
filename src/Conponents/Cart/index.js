@@ -1,18 +1,44 @@
 import React, { Component } from 'react'
-import math from '../../images/math.png'
-import biology from '../../images/biology.png'
-import technology from '../../images/technology.png'
-import programming from '../../images/programming.png'
+import PropTypes from 'prop-types'
 import './cart.scss'
+import {
+  TransitionGroup,
+  CSSTransition
+} from 'react-transition-group';
+import { FaTimes } from 'react-icons/fa';
 
 export class Cart extends Component {
   render() {
+    const { imgLibrary } = this.props
     return (
-      <div className='cart text-center' >
-        <img src={math} alt='bookname' />
-      </div>
+      <>
+        <TransitionGroup className="cart text-center mb-2">
+          {imgLibrary.map((images, i) => {
+            return (
+              <CSSTransition
+              classNames="item">
+              <div key={i} className='d-flex flex-column position-relative'>
+                <button className='del-btn'>
+                  <span><FaTimes /></span>
+                </button>
+
+                  <img
+                    src={require(`../../images/${images}.png`)}
+                    alt='bookname'
+                    className='mx-1' />
+              </div>
+              </CSSTransition>
+            )
+          }
+          )}
+        </TransitionGroup>
+      </>
     )
   }
+}
+
+Cart.propTypes = {
+  imgLibrary: PropTypes.array
 }
 
 export default Cart
