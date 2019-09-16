@@ -9,21 +9,23 @@ import { FaTimes } from 'react-icons/fa';
 
 export class Cart extends Component {
   render() {
-    const { imgLibrary } = this.props
+    const { imgLibrary, removeBook } = this.props
+    console.log(imgLibrary)
     return (
-      <>
-        <TransitionGroup className="cart text-center mb-2">
-          {imgLibrary.map((images, i) => {
+      <div className='cart-store d-flex'>
+       <h1 className={`align-content-center align-self-center ${(imgLibrary.length === 0)?'d-block': 'd-none'} `}>Book Store is Empty</h1>
+        <TransitionGroup className={`cart text-center mb-2 ${(imgLibrary.length > 0)?'d-grid': 'd-none'}`}>
+          {imgLibrary.map((image, i) =>{
             return (
               <CSSTransition
               timeout={400}
               classNames="item">
               <div key={i} className='d-flex flex-column position-relative'>
-                <button className='del-btn'>
+                <button className='del-btn' onClick={()=>removeBook(image)}>
                   <span><FaTimes /></span>
                 </button>
                   <img
-                    src={require(`../../images/${images}.png`)}
+                    src={require(`../../images/${image}.png`)}
                     alt='bookname'
                     className='mx-1' />
               </div>
@@ -32,13 +34,14 @@ export class Cart extends Component {
           }
           )}
         </TransitionGroup>
-      </>
+      </div>
     )
   }
 }
 
 Cart.propTypes = {
-  imgLibrary: PropTypes.array
+  imgLibrary: PropTypes.array,
+  removeBook: PropTypes.any
 }
 
 export default Cart

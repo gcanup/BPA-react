@@ -1,7 +1,15 @@
+.cart-store {
+  height: 150px;
+  background: #e2e0c6;
+  justify-content: center;
+}
+
 .cart {
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
   height: auto;
+  align-self: center;
+  width: 100%;
 
   .del-btn {
     position: absolute;

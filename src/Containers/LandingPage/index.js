@@ -43,7 +43,7 @@ class LandingPage extends Component {
   render() {
     return (
       <div className='mt-5 mx-auto landing-page'>
-        <Cart {...this.state} />
+        <Cart {...this.state} removeBook = {this.removeBookHandler} />
         <BuildControls
           addBook={this.addBookHandler}
           removeBook={this.removeBookHandler}
