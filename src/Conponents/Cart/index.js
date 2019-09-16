@@ -16,12 +16,12 @@ export class Cart extends Component {
           {imgLibrary.map((images, i) => {
             return (
               <CSSTransition
+              timeout={400}
               classNames="item">
               <div key={i} className='d-flex flex-column position-relative'>
                 <button className='del-btn'>
                   <span><FaTimes /></span>
                 </button>
-
                   <img
                     src={require(`../../images/${images}.png`)}
                     alt='bookname'
