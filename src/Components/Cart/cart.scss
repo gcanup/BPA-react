@@ -6,9 +6,10 @@
 
 .cart {
   display: grid;
-  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-columns: 15% 15% 15% 15% 15%;
   height: auto;
   align-self: center;
+  justify-content: center;
   width: 100%;
 
   .del-btn {
