@@ -1,14 +1,48 @@
 import React, { Component } from 'react'
-import { Jumbotron } from 'reactstrap'
+import { Route } from 'react-router-dom';
+import Cart from '../../Components/Cart'
+import CheckoutSummary from '../../Components/Order/CheckoutSummary'
+import ContactData from './ContactData'
 
 class Checkout extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      cart: null,
+      totalPrice: 0
+    }
+  }
+
+  componentDidMount() {
+    const query = new URLSearchParams(this.props.location.search);
+    const cart = {};
+    let price = 0;
+
+    for(let param of query.entries()) {
+      // ['salad', '1']
+      if(param[0] === 'price') {
+        price = param[1];
+      } else {
+        cart[param[0]] = +param[1];
+      }
+    }
+    this.setState({ cart, totalPrice: price });
+  }
+
   render() {
     return (
-      <>
-        <Jumbotron>
-          Checkout Page
-        </Jumbotron>
-      </>
+      <div className='mt-5'>
+        <CheckoutSummary
+          {...this.state}
+          proceed={() => {this.props.history.replace('/checkout/contact-data')}}
+          cancel={() => {this.props.history.goBack()}}
+        />
+        <Route
+          path={this.props.match.path + '/contact-data'}
+          render={(props) => (<ContactData {...this.state} {...props} />)}
+        />
+      </div>
     )
   }
 }

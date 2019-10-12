@@ -36,7 +36,7 @@ class BuildControls extends Component {
           <tbody>
               {buildControls.map(book => {
                 return (
-                  <tr>
+                  <tr key={book.id}>
                   {/*  <div key={book.id} className='d-flex mb-1 controls mx-auto'> */}
                   <th>{book.name}</th>
                   <th>{book.price}</th>

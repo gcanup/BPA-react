@@ -10,7 +10,6 @@ import { FaTimes } from 'react-icons/fa';
 export class Cart extends Component {
   render() {
     const { imgLibrary, removeBook } = this.props
-    console.log(imgLibrary)
     return (
       <div className='cart-store d-flex'>
        <h1 className={`align-content-center align-self-center ${(imgLibrary.length === 0)?'d-block': 'd-none'} `}>Book Store is Empty</h1>
@@ -19,8 +18,9 @@ export class Cart extends Component {
             return (
               <CSSTransition
               timeout={400}
-              classNames="item">
-              <div key={i} className='d-flex flex-column position-relative'>
+              classNames="item"
+              key={i}>
+              <div className='d-flex flex-column position-relative'>
                 <button className='del-btn' onClick={()=>removeBook(image)}>
                   <span><FaTimes /></span>
                 </button>

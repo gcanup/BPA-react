@@ -5,9 +5,7 @@ class Orders extends Component {
   render() {
     return (
       <>
-        <Jumbotron>
-          Order Summary Page
-        </Jumbotron>
+        <h4>Please look through the card and fill the form</h4>
       </>
     )
   }

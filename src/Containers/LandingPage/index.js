@@ -52,8 +52,20 @@ class LandingPage extends Component {
     }));
   }
 
+  purchaseContinueHandler = () => {
+    const queryParams = [];
+    for (let i in this.state.cart) {
+        queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.cart[i])); //tested without encodeURIComponent and still works
+    }
+    queryParams.push('price=' + this.state.totalPrice);
+    const queryString = queryParams.join('&');
+    this.props.history.push({
+        pathname: '/checkout',
+        search: '?' + queryString
+    });
+}
+
   render() {
-    console.log('calling from landing page', this.state.purchasing)
     return (
       <div className='mt-5 mx-auto landing-page'>
         <Cart {...this.state} removeBook={this.removeBookHandler} />
@@ -64,7 +76,8 @@ class LandingPage extends Component {
           purchase={this.purchasing} />
         <ModalComponent
           {...this.state}
-          purchase={() => { this.setState(prevState => ({ purchasing: !prevState.purchasing })) }} />
+          purchase={() => { this.setState(prevState => ({ purchasing: !prevState.purchasing })) }}
+          continue={this.purchaseContinueHandler}  />
       </div>
     )
   }
