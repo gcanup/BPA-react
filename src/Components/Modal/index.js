@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
-import { randomBytes } from 'crypto';
 
 class ModalComponent extends PureComponent {
   render() {

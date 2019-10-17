@@ -7,7 +7,7 @@ export class CheckoutSummary extends Component {
     const { cart, totalPrice, cancel, proceed} = this.props
     return (
         <Row>
-          <Col className='text-center'><img src={bookpile} className='w-75' /> </Col>
+          <Col className='text-center'><img src={bookpile} className='w-50' alt='cart appearance' /> </Col>
           <Col>{cart ? Object.keys(cart).map((book) => {
             return <Table borderless key={Math.random() + Date()}>
               <td className='w-50 p-0'>{book} </td>

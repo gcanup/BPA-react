@@ -1,63 +1,55 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 
-// import classes from './Input.css';
-
 const input = (props) => {
   let inputElement = null;
   switch(props.elementType) {
     case ('input'):
-      inputElement = 
-      <TextField
-      id="standard-password-input"
-      label={props.elementConfig.placeholder}
-      autoComplete="current-password"
-      margin="normal"
-    />
-      // <input
-      //   {...props.elementConfig}
-      //   value={props.value}
-      // // onChange={props.changed}
-      // />;
+      inputElement =
+        <TextField
+          id="standard-password-input"
+          label={props.elementConfig.placeholder}
+          autoComplete="current-password"
+          margin="normal"
+          style={{ width: 500 }}
+          onChange = {props.changed}
+        />
       break;
     case ('textarea'):
       inputElement =
-      <TextField
-      id="standard-password-input"
-      label={props.value}
-
-      type="password"
-      autoComplete="current-password"
-      margin="normal"
-      width={1}
-    />
-      // <textarea
-      //   // className={inputClasses.join(' ')}
-      //   {...props.elementConfig}
-      //   value={props.value}
-      // // onChange={props.changed} 
-      // />;
+        <TextField
+          id="standard-password-input"
+          label={props.value}
+          type="password"
+          autoComplete="current-password"
+          margin="normal"
+          width={1}
+        />
       break;
     case ('select'):
       inputElement =
-        <select
-          // className={inputClasses.join(' ')}
+        <TextField
+          id="standard-select-currency-native"
+          select
           value={props.value}
-        // onChange={props.changed}
+          helperText="Please select your currency"
+          margin="normal"
+          style={{ width: 500 }}
+          onChange={props.changed}
         >
           {props.elementConfig.options.map(option => (
-            <option key={option.value} value={option.value}>
+            <option key={Math.random()} value={option.value}>
               {option.displayValue}
             </option>
           ))}
-        </select>
+        </TextField>
+        
+
       break;
     default:
       inputElement = <input
-        // className={inputClasses.join(' ')}
         {...props.elementConfig}
         value={props.value}
-      // onChange={props.changed}
       />;
   }
 

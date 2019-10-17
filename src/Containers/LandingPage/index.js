@@ -54,7 +54,8 @@ class LandingPage extends Component {
 
   purchaseContinueHandler = () => {
     const queryParams = [];
-    for (let i in this.state.cart) {
+    let i = null
+    for (i in this.state.cart) {
         queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.cart[i])); //tested without encodeURIComponent and still works
     }
     queryParams.push('price=' + this.state.totalPrice);

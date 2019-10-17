@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom';
-import Cart from '../../Components/Cart'
 import CheckoutSummary from '../../Components/Order/CheckoutSummary'
 import ContactData from './ContactData'
 
@@ -18,8 +17,8 @@ class Checkout extends Component {
     const query = new URLSearchParams(this.props.location.search);
     const cart = {};
     let price = 0;
-
-    for(let param of query.entries()) {
+    let param= null
+    for(param of query.entries()) {
       // ['salad', '1']
       if(param[0] === 'price') {
         price = param[1];
